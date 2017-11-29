@@ -10,32 +10,38 @@ Accueil général
 
 {% block body %}
 
-	<div class="panel panel-default col-xs-12  ">
+	<div class="row col-xs-12  ">
 		<h2> Les derniers trajets ajoutés </h2>
 		{% for trajet in trajets %}
-			<div class="col-md-3 col-sm-6 col-xs-12 panel panel-default">
-			  <div class="panel-body">
+		  <div class="col-sm-6 col-md-4">
+		    <div class="thumbnail">
+		      <div class="caption">
 			  	<li>De : {{ trajet.VilleDepart }}</li>
 			    <li>Le : {{ trajet.dateDepart |date('Y-m-d') }}</li>
-			    <li>Pour : {{ trajet.cotisation }}€</li>
-			    <li> <a href="{{ path('ng_trajetedit', {'id': trajet.id}) }} "> Modifier </a>
-			    <li> <a href="{{ path('ng_trajetview', {'id': trajet.id}) }} "> Voir </a>
-			  </div>
-			</div>
+		        <p>Cotisation :  {{ trajet.cotisation }}€</p>
+		        <p>
+		        	<a href="{{ path('ng_trajetedit', {'id': trajet.id}) }}" class="btn btn-primary" role="button">Modifier</a> 
+		        	<a href="{{ path('ng_trajetview', {'id': trajet.id}) }}" class="btn btn-default" role="button">Voir</a></p>
+		      </div>
+		    </div>
+		  </div>
 		{% endfor %}
 	</div>
-	<div class="panel panel-default col-xs-12">
+	<div class="row col-xs-12">
 		<h2> Les trajets aujourd'hui </h2>
 		{% for trajetojd in trajetsojd %}
-			<div class="col-md-3 col-sm-6 col-xs-12 panel panel-default">
-			  <div class="panel-body">
+		<div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+			  <div class="caption">
 			  	<li>De : {{ trajetojd.VilleDepart }}</li>
 			    <li>Le : {{ trajetojd.dateDepart |date('Y-m-d') }}</li>
-			    <li>Pour : {{ trajetojd.cotisation }}€</li>
-			    <li> <a href="{{ path('ng_trajetedit', {'id': trajetojd.id}) }} "> Modifier </a>
-			    <li> <a href="{{ path('ng_trajetview', {'id': trajetojd.id}) }} "> Voir </a>
+			    <p>Cotisation :  {{ trajetojd.cotisation }}€</p>
+			    <p>
+			    	<a href="{{ path('ng_trajetedit', {'id': trajetojd.id}) }}" class="btn btn-primary" role="button">Modifier</a> 
+			    	<a href="{{ path('ng_trajetview', {'id': trajetojd.id}) }}" class="btn btn-default" role="button">Voir</a></p>
 			  </div>
 			</div>
+		</div>
 		{% endfor %}
 	</div>
 

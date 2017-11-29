@@ -11,11 +11,18 @@
 		{% for flashMessage in app.session.flashbag.get('notice') %}
 		    {{ flashMessage }}
 		{% endfor %}
-		<div class="header">
 			{% include  "::header.html.twig" %}
-			<h1>{% block titleaffiche %}{% endblock %}</h1>
+		<div class="jumbotron text-center">
+			<div class="container">
+				<h1>{% block titleaffiche %}{% endblock %}</h1>
+			</div>
 		</div>
-		{% block body %}{% endblock %}
+		<div class="panel panel-default">
+			<div class="panel-body">
+				{% block body %}{% endblock %}
+			</div>
+		</div>
+
 		{% include  "::footer.html.twig" %}
 	</body>
 </html>
