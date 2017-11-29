@@ -1,0 +1,33 @@
+ng_homepage:
+    path:     /
+    defaults: { _controller: NGBundle:Trajet:index }
+
+ng_trajetinscription:
+    path:     /trajet/add
+    defaults: { _controller: NGBundle:Trajet:add }
+
+ng_trajetview:
+    path:     /trajet/view/{id}
+    defaults: { _controller: NGBundle:Trajet:view }
+    requirements:
+        id: \d+
+
+ng_trajetedit:
+    path:     /trajet/edit/{id}
+    defaults: { _controller: NGBundle:Trajet:edit }
+    requirements:
+        id: \d+
+
+ng_trajetdelete:
+    path:     /trajet/delete/{id}
+    defaults: { _controller: NGBundle:Trajet:delete }
+    requirements:
+        id: \d+
+
+ng_trajetsliste:
+    path:     /trajet/liste
+    defaults: { _controller: NGBundle:Trajet:miens }
+
+ng_trajetssearch:
+    path:     /trajet/search
+    defaults: { _controller: NGBundle:Trajet:search }

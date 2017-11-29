@@ -1,0 +1,31 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+Resultat de recherche
+{% endblock %}
+
+{% block titleaffiche %}
+Résultats pour : {{ villeDepart }}
+{% endblock %}
+
+{% block body %}
+
+	<div class="panel panel-default col-xs-12  ">
+		{% for trajet in trajets %}
+		<div class="col-md-3 col-sm-6 col-xs-12 panel panel-default">
+		  <div class="panel-body">
+		  	<li>De : {{ trajet.VilleDepart }}</li>
+		    <li>Le : {{ trajet.dateDepart |date('Y-m-d') }}</li>
+		    <li>Pour : {{ trajet.cotisation }}€</li>
+		    <li> <a href="{{ path('ng_trajetedit', {'id': trajet.id}) }} "> Modifier </a>
+		    <li> <a href="{{ path('ng_trajetview', {'id': trajet.id}) }} "> Voir </a>
+		    <li> <a href="{{ path('ng_trajetdelete', {'id': trajet.id}) }} "> Supprimer </a>
+		  </div>
+		</div>
+		{% else %}
+	        <p>Aucun résultat</p>
+	        <a href="{{ path('ng_trajetinscription') }}">Ajouter mon trajet </a>
+	    {% endfor %}
+	</div>
+
+{% endblock %}

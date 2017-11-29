@@ -1,0 +1,21 @@
+<html>
+	<head>
+        <meta charset="UTF-8">
+		<title>{% block title %} Mon premier blog symfony {% endblock %} </title>
+	    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+	    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+	    <script src="{{ asset('js/jQuery.min.js') }}"></script>
+	    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+	</head>
+	<body>
+		{% for flashMessage in app.session.flashbag.get('notice') %}
+		    {{ flashMessage }}
+		{% endfor %}
+		<div class="header">
+			{% include  "::header.html.twig" %}
+			<h1>{% block titleaffiche %}{% endblock %}</h1>
+		</div>
+		{% block body %}{% endblock %}
+		{% include  "::footer.html.twig" %}
+	</body>
+</html>
